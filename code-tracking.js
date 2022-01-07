@@ -1,4 +1,29 @@
-window.onload=function(){
+window.onload = function () {
+	
+	var coffeNav = document.querySelectorAll('div.btn-ar > a > .col-auto.pr-0');
+
+	if(coffeNav != undefined){
+
+		for (var i = 0; i < coffeNav.length; i++) {
+			
+			coffeNav[i].onclick = function () {
+				var navigationAttr = {};
+				
+				//console.log("Navigation "+JSON.stringify(navigationAttr));
+
+				gtmDataObject.push({
+					event : "customEvent",
+					eventCategory : "User Engagement",
+					eventAction : "Navigation - Welcome to Nespresso",
+					eventLabel: "Let's get started - "+this.textContent
+				});
+			}
+
+		}
+	}
+}
+
+/*window.onload=function(){
 
 var coffeNav = document.querySelectorAll('div.btn-ar > a > .col-auto.pr-0');
 
@@ -44,3 +69,4 @@ if(wellNessNav != undefined){
 }
 
 }
+*/
