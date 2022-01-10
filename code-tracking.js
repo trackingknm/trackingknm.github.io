@@ -1,4 +1,4 @@
-window.ready = function () {
+window.onload = function () {
 	
 	var coffeNav = document.querySelectorAll('div.btn-ar > a > .col-auto.pr-0');
 
