@@ -35,10 +35,10 @@ window.onload = function () {
 			//console.log("Navigation "+JSON.stringify(navigationAttr));
 
 			gtmDataObject.push({
-				event = 'customEvent',
-				eventCategory = "User Engagement",
-				eventAction = "Navigation - Welcome to Nespresso",
-				eventLabel= "Welcome to Nespresso - "+this.textContent
+				event : 'customEvent',
+				eventCategory : "User Engagement",
+				eventAction : "Navigation - Welcome to Nespresso",
+				eventLabel: "Welcome to Nespresso - "+this.textContent
 			});
 
 		   }
