@@ -1,4 +1,5 @@
 window.onload = function () {
+	console.log("Windiw loaded");
 	
 	var coffeNav = document.querySelectorAll('div.btn-ar > a > .col-auto.pr-0');
 
@@ -7,6 +8,7 @@ window.onload = function () {
 		for (var i = 0; i < coffeNav.length; i++) {
 			
 			coffeNav[i].onclick = function () {
+				console.log("click ff")
 				var navigationAttr = {};
 				
 				//console.log("Navigation "+JSON.stringify(navigationAttr));
