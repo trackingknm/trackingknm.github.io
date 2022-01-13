@@ -78,7 +78,7 @@ if(typeof(document.querySelector('button#validate-privilege')) != 'undefined' &&
 var validationRegisterForm = [];
 if(document.querySelector('#active-privilege') != null){
   var buttonAuth = document.querySelector('#active-privilege')
-  buttonAuth.onclick = function(){  
+  buttonAuth.onclick = function(){  console.log("running click")
       if( document.querySelector("#email_otp").value != "" && validationRegisterForm.indexOf(1) === -1 && document.referrer != ""){
            gtmDataObject.push({
               'event':'customEvent',
