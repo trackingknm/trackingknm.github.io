@@ -76,8 +76,8 @@ if(typeof(document.querySelector('button#validate-privilege')) != 'undefined' &&
 }
 
 var validationRegisterForm = [];
-if(document.querySelector('#active-privilege') != null){
-  var buttonAuth = document.querySelector('#active-privilege')
+if(document.querySelector('#createaccount-activation-form > div#createaccount-activation-content > div.block-active-privilege > div.row-up >button') != null){
+  var buttonAuth = document.querySelector('#createaccount-activation-form > div#createaccount-activation-content > div.block-active-privilege > div.row-up >button')
   buttonAuth.onclick = function(){  console.log("running click")
       if( document.querySelector("#email_otp").value != "" && validationRegisterForm.indexOf(1) === -1 && document.referrer != ""){
            gtmDataObject.push({
