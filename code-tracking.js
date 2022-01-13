@@ -57,8 +57,8 @@ if(typeof(document.querySelector('button#validate-privilege')) != 'undefined' &&
       
   	if(registerName != '' && registerPassword != ''){
     		gtmDataObject.push({
-      		  'event':'submitForm',
-      		  'eventCategory':'Registration Flow',
+      		  'event':'customEvent',
+      		  'eventCategory':'Registration',
       		  'eventAction':'Initiate Registration',
       		  'eventLabel':'Full Fill the Fields'
     		});
@@ -66,8 +66,8 @@ if(typeof(document.querySelector('button#validate-privilege')) != 'undefined' &&
 
    	}else if(registerPassword === '' || registerPassword === '') {
      		gtmDataObject.push({
-        	 'event':'submitForm',
-        	 'eventCategory':'Registration Flow',
+        	 'event':'customEvent',
+        	 'eventCategory':'Registration',
         	 'eventAction':'Initiate Registration',
         	 'eventLabel':'Not Completed Fill'
       		});   
@@ -81,16 +81,16 @@ if(document.querySelector('#active-privilege') != null){
   buttonAuth.onclick = function(){  
       if( document.querySelector("#email_otp").value != "" && validationRegisterForm.indexOf(1) === -1 && document.referrer != ""){
            gtmDataObject.push({
-              'event':'submitForm',
-              'eventCategory':'Registration Flow',
+              'event':'customEvent',
+              'eventCategory':'Registration',
               'eventAction':'Verification Registration',
               'eventLabel':'Full Fill the Fields'
            });
            validationRegisterForm.push(1);
       }else  if( document.querySelector("#email_otp").value != "" && validationRegisterForm.indexOf(1) === -1 && document.referrer == ""){
            gtmDataObject.push({
-            'event':'submitForm',
-            'eventCategory':'Registration Flow',
+            'event':'customEvent',
+            'eventCategory':'Registration',
             'eventAction':'Verification Registration',
             'eventLabel':'Full Fill the Fields - Reload Page'
            });
@@ -99,8 +99,8 @@ if(document.querySelector('#active-privilege') != null){
       }else if(document.querySelector("#email_otp").value == ""){
   
           gtmDataObject.push({
-            'event':'submitForm',
-            'eventCategory':'Registration Flow',
+            'event':'customEvent',
+            'eventCategory':'Registration',
             'eventAction':'Verification Registration',
             'eventLabel':'Not Completed Fill'
           });
@@ -118,8 +118,8 @@ confirmButtonRegistration.onclick =  function(){
 	document.querySelector("#email_address").value != "" && document.querySelector("#mobile_phone").value != "" &&
 	validationRegisterForm.indexOf(3) === -1 && document.referrer != ""){
       		gtmDataObject.push({
-        	   'event':'submitForm',
-        	   'eventCategory':'Registration Flow',
+        	   'event':'customEvent',
+        	   'eventCategory':'Registration',
         	   'eventAction':'Sucesfull Registration',
         	   'eventLabel':'Full Fill the Fields'
         	});
@@ -131,8 +131,8 @@ confirmButtonRegistration.onclick =  function(){
 	validationRegisterForm.indexOf(3) === -1 && document.referrer == ""){
 
  		gtmDataObject.push({
-        	   'event':'submitForm',
-        	   'eventCategory':'Registration Flow',
+        	   'event':'customEvent',
+        	   'eventCategory':'Registration',
                    'eventAction':'Sucesfull Registration',
                    'eventLabel':'Full Fill the Fields - Reload Page'
       		});
@@ -143,8 +143,8 @@ confirmButtonRegistration.onclick =  function(){
 	document.querySelector("#email_address").value == "" || document.querySelector("#mobile_phone").value == "" ){
   
    		gtmDataObject.push({
-        		'event':'submitForm',
-        		'eventCategory':'Registration Flow',
+        		'event':'customEvent',
+        		'eventCategory':'Registration',
         		'eventAction':'Sucesfull Registration',
         		'eventLabel':'Not Completed Fill'
       		});
