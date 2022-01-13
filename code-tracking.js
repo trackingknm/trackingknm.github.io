@@ -110,7 +110,7 @@ if(document.querySelector('#active-privilege') != null){
 }
 
 
-var confirmButtonRegistration = document.querySelector('.registration__footer > div.actions-toolbar > div.primary >button')
+var confirmButtonRegistration = document.querySelector('#form-validate > .registration__footer > div.actions-toolbar > div.primary >button')
 if(confirmButtonRegistration != null){
 confirmButtonRegistration.onclick =  function(){  
 	if( document.querySelector("#firstname").value != "" &&
