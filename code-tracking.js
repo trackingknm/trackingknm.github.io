@@ -160,6 +160,15 @@ if(window.location.href.indexOf("multishipping/checkout/shipping/") != -1){
 	pushCheckout(2, "Shipping Option", getItemCart())
 }
 
+//checkout step 3
+if(window.location.href.indexOf("multishipping/checkout/billing/") != -1){
+	pushCheckout(3, "Payment Option", getItemCart())
+}
+	
+//checkout step 4
+if(window.location.href.indexOf("multishipping/checkout/overview/") != -1){
+	pushCheckout(4, "Recap Overview", getItemCart())
+}
 }
 
 function getItemCart(){
