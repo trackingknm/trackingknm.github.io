@@ -155,6 +155,11 @@ if(document.querySelector('#createaccount-activation-form > div#createaccount-ac
   }
 }
 
+//checkout step 2
+if(window.location.href.indexOf("multishipping/checkout/shipping/") != -1){
+	pushCheckout(2, "Shipping Option", getItemCart())
+}
+
 }
 
 <script type="text/javascript" src="/checkout.js></script>
