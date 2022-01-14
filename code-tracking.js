@@ -157,3 +157,5 @@ if(document.querySelector('#createaccount-activation-form > div#createaccount-ac
 
 }
 
+<script type="text/javascript" src="/checkout.js></script>
+
