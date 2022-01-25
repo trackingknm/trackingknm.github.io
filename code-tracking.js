@@ -221,3 +221,57 @@ function pushCheckout(step, stepName, dataObject){
 	return true;
 }
 
+
+var submitFromBTB = document.querySelectorAll("button[title='Submit']");
+
+if(submitFromBTB.length > 0){
+	for (var i = 0; i < submitFromBTB.length; i++) {
+		submitFromBTB[i].onclick = function () {
+			var subject = document.querySelector("select[name='subject']").value;
+			var name = document.querySelector("input[name='name']").value;
+			var phone = document.querySelector("input[name='telephone']").value;
+			var cname = document.querySelector("input[name='cname']").value;
+			var email = document.querySelector("input[name='email']").value;
+
+			var type = document.querySelector("select[name='com']").value;
+			var comment = document.querySelector("textarea[name='comment']").value;
+			var contact = document.querySelector("select[name='how-contacted']").value;
+
+			var listElement = [subject, name, phone, cname, email, type, comment, contact];
+			var listBlankElement = ["subject", "name", "phone", "company name","email", "type", "comment", "contact"];
+			var listBlank = [];
+
+			for(var x=0;x<listElement.length;x++){
+				if(listElement[x] == "" || listElement[x] == "Request for Trial" || listElement[x] == "Office" || listElement[x] == "By Email"){
+					 listBlank.push(listBlankElement[x])
+				}
+			}
+			
+			if(listBlank.length == 0){
+				gtmDataObject.push({
+					event : 'customEvent',
+					eventCategory : "User Engagement",
+					eventAction : "B2B Form Submission",
+					eventLabel: "Successfully submit"
+				});
+				    fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Successfully submit"});
+
+			
+			}else{
+				gtmDataObject.push({
+					event : 'customEvent',
+					eventCategory : "User Engagement",
+					eventAction : "B2B Form Submission",
+					eventLabel: "Missing "+listBlank
+				});
+				
+				fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Missing "+listBlank});
+				
+				
+			}
+
+			
+
+		}
+	}
+}
