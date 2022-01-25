@@ -254,7 +254,7 @@ if(submitFromBTB.length > 0){
 					eventAction : "B2B Form Submission",
 					eventLabel: "Successfully submit"
 				});
-				    fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Successfully submit"});
+				    fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Successfully submit", status:"Registration B2B - Success"});
 
 			
 			}else{
@@ -265,7 +265,7 @@ if(submitFromBTB.length > 0){
 					eventLabel: "Missing "+listBlank
 				});
 				
-				fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Missing "+listBlank});
+				fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Missing "+listBlank, status:"Registration B2B - Failed"});
 				
 				
 			}
