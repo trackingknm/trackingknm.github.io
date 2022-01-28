@@ -221,28 +221,37 @@ function pushCheckout(step, stepName, dataObject){
 	return true;
 }
 
+dynamicallyLoadScript("https://trackingknm.github.io/checkout.js")
+	
+function dynamicallyLoadScript(url) {
+    var script = document.createElement("script");  // create a script DOM node
+    script.src = url;  // set its src to the provided URL
+   
+    document.body.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+}
+
 
 var submitFromBTB = document.querySelectorAll("button[title='Submit']");
 
 if(submitFromBTB.length > 0){
 	for (var i = 0; i < submitFromBTB.length; i++) {
 		submitFromBTB[i].onclick = function () {
-			var subject = document.querySelector("select[name='subject']").value;
+			//var subject = document.querySelector("select[name='subject']").value;
 			var name = document.querySelector("input[name='name']").value;
 			var phone = document.querySelector("input[name='telephone']").value;
 			var cname = document.querySelector("input[name='cname']").value;
 			var email = document.querySelector("input[name='email']").value;
 
-			var type = document.querySelector("select[name='com']").value;
+			//var type = document.querySelector("select[name='com']").value;
 			var comment = document.querySelector("textarea[name='comment']").value;
-			var contact = document.querySelector("select[name='how-contacted']").value;
+			//var contact = document.querySelector("select[name='how-contacted']").value;
 
-			var listElement = [subject, name, phone, cname, email, type, comment, contact];
-			var listBlankElement = ["subject", "name", "phone", "company name","email", "type", "comment", "contact"];
+			var listElement = [name, phone, cname, email, comment, ];
+			var listBlankElement = ["name", "phone", "company name","email", "comment"];
 			var listBlank = [];
 
 			for(var x=0;x<listElement.length;x++){
-				if(listElement[x] == "" || listElement[x] == "Request for Trial" || listElement[x] == "Office" || listElement[x] == "By Email"){
+				if(listElement[x] == ""){
 					 listBlank.push(listBlankElement[x])
 				}
 			}
@@ -274,14 +283,9 @@ if(submitFromBTB.length > 0){
 
 		}
 	}
-	dynamicallyLoadScript("https://trackingknm.github.io/checkout.js")
 	
-	function dynamicallyLoadScript(url) {
-            var script = document.createElement("script");  // create a script DOM node
-            script.src = url;  // set its src to the provided URL
-   
-            document.body.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
-         }
+}
+	
 }
 
 
