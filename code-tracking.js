@@ -230,6 +230,59 @@ function dynamicallyLoadScript(url) {
     document.body.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
 }
 
+//giveaway open
+var submitFromGVA = document.querySelectorAll("#validate-register");
+
+if(submitFromGVA.length > 0 && document.location.href.substring("giveaway") != -1){
+	for (var i = 0; i < submitFromGVA.length; i++) {
+		submitFromGVA[i].onclick = function () {
+			var name = document.querySelector("input[id='name']").value;
+			var surename = document.querySelector("input[id='surename']").value;
+			var email = document.querySelector("input[id='email']").value;
+			var phone = document.querySelector("input[id='mobile_no']").value;
+
+			var birthDate = document.querySelector("input[id='birth_date']").value;
+			
+			var listElement = [name, surename, email, phone, birthDate];
+			var listBlankElement = ["name", "surename", "email","phone", "birthDate"];
+			var listBlank = [];
+
+			for(var x=0;x<listElement.length;x++){
+				if(listElement[x] == ""){
+					 listBlank.push(listBlankElement[x])
+				}
+			}
+			
+			if(listBlank.length == 0){
+				gtmDataObject.push({
+					event : 'customEvent',
+					eventCategory : "User Engagement",
+					eventAction : "Giveaway Form Submission",
+					eventLabel: "Successfully submit"
+				});
+				    fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Successfully submit", status:"Giveaway - Success"});
+
+			
+			}else{
+				gtmDataObject.push({
+					event : 'customEvent',
+					eventCategory : "User Engagement",
+					eventAction : "Giveaway Form Submission",
+					eventLabel: "Missing "+listBlank
+				});
+				
+				fbq('track', 'CompleteRegistration', {currency: "IDR", content_name: "Missing "+listBlank, status:"Giveaway - Failed"});
+				
+				
+			}
+
+			
+
+		}
+	}
+	
+}
+// end giveaway
 
 var submitFromBTB = document.querySelectorAll("button[title='Submit']");
 
