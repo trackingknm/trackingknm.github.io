@@ -65,6 +65,62 @@ window.addEventListener('scroll', function() {
 	}
 })
 
+var productsElement = document.querySelectorAll(".product");
+
+if(productsElement.length > 0){
+	for (var i = 0; i < productsElement.length; i++) { 
+		productsElement[i].addEventListener("click", function() {
+		    var product = [];
+			var prdCategoryElement = productsElement[0].parentElement.parentElement.querySelector(":scope >h2");
+			//var product = productsElement[i];
+			var prdIdElement = this.querySelector(":scope > .product-text > .product-price > .price-box.price-final_price");
+			var prdNameElement = this.querySelector(":scope > .product-name > h3 > a");
+			var prdPriceElement = this.querySelector(":scope > .product-text > .product-price > .price-box.price-final_price > .price-container > span");
+			var productData = {};
+					
+			var productName = "";
+					
+					
+			if(prdNameElement != null){
+				productName = prdNameElement.textContent
+			}else{
+				prdNameElement = product.querySelector(":scope > .product-text > .product-description > .product-name >h3 > a");
+				productName = prdNameElement.textContent
+			}
+						
+			if(prdCategoryElement != null){
+				prdCategory = prdCategoryElement.texContent;
+			}else{
+				prdCategory = "";	
+			}
+					
+			var productPrice = 0;
+			if(prdPriceElement == null){
+				var prdPriceElement = this.querySelector(":scope > .product-text > .product-price > input");
+				productPrice = prdPriceElement.value;
+			    //console.log("Product Price "+productPrice)
+			}else{
+				productPrice = prdPriceElement.getAttribute("data-price-amount");
+			}
+						
+			//console.log(prdCategory)
+			//console.log(productName)
+			//console.log(prdIdElement.getAttribute("data-product-id"))
+		    console.log(productPrice)
+						
+			productData.id = prdIdElement.getAttribute("data-product-id");
+			productData.name = productName;
+			productData.price = productPrice;
+			productData.category = prdCategory;
+			productData.position = i;
+			
+			product.push(productData)
+			productClickPush(product)
+			
+		})
+	}
+}
+
 function getPositionElementByPosition(position){
 	//var element = document.querySelector(topField+topBannerSelector);
 	//var position = element.getBoundingClientRect();
@@ -79,7 +135,6 @@ function getPositionElementByPosition(position){
 	
 	return status;
 }
-
 
 function productImpressionPush(entityProduct){
 	gtmDataObject.push({
@@ -96,6 +151,23 @@ function productImpressionPush(entityProduct){
 
 }
 
+function productClickPush(entityProduct){
+	gtmDataObject.push({
+		'event':'productClick',
+		'eventCategory':'Ecommerce',
+		'eventAction':'Product Click',
+		'eventLabel':entityProduct[0].category,
+		'ecommerce':{
+			'click': {
+				'actionField': {'list': entityProduct[0].category},      // Optional list property.
+				'products': entityProduct
+			}
+		}
+		
+	});
+
+}
+
 function getNameOfLink(link){
   var lastSlash = link.lastIndexOf("/")
   var lastdot = link.lastIndexOf(".")
@@ -104,4 +176,5 @@ function getNameOfLink(link){
   
   return linkName.replace(/-/g, ' ');
 
+	
 }
