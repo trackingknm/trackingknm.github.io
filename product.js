@@ -1,4 +1,4 @@
-if(document.querySelectorAll(".product").length >0 && window.location.href.indexOf("checkout") == -1 ){
+/*if(document.querySelectorAll(".product").length >0 && window.location.href.indexOf("checkout") == -1 ){
 window.onload = function () {
 	var productsElement = document.querySelectorAll(".product");
 
@@ -55,7 +55,7 @@ if(productsElement.length > 0){
 		})
 	}
 }
-}
+}*/
 	
 function productClickPush(entityProduct){
 	gtmDataObject.push({
