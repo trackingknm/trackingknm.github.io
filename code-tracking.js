@@ -1,3 +1,4 @@
+if(documnt.querySelectorAll(".product").length == 0 || window.location.href("checkout") != -1 ){
 window.onload = function () {
 	var pageUrl = window.location.href;
 	
@@ -176,7 +177,7 @@ if(window.location.href.indexOf("multishipping/checkout/overview") != -1){
 	pushCheckout(4, "Recap Overview", getItemCart())
 }
 }
-
+}
 function getItemCart(){
   var itemList = JSON.parse(localStorage.getItem("mage-cache-storage"));
   var cart = itemList.cart.items;
