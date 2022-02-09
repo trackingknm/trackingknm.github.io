@@ -1,4 +1,4 @@
-if(documnt.querySelectorAll(".product").length >0 && window.location.href("checkout") != -1 ){
+if(documnt.querySelectorAll(".product").length >0 && window.location.href("checkout") == -1 ){
 window.onload = function () {
 	var productsElement = document.querySelectorAll(".product");
 
