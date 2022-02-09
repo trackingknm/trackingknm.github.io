@@ -1,4 +1,10 @@
 window.onload = function () {
+	var pageUrl = window.location.href;
+	
+	if(pageUrl.indexOf("procontact") != -1){
+		gtmDataObject.push({'event': 'event_pageView'})
+	}
+	
 	console.log("Windiw loaded");
 	
 	var coffeNav = document.querySelectorAll('div.btn-ar > a > .col-auto.pr-0');
