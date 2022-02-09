@@ -73,8 +73,6 @@ function productClickPush(entityProduct){
 	});
 
 }
-	
-}
 
 
 //product impression
