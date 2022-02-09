@@ -1,3 +1,4 @@
+if(documnt.querySelectorAll(".product").length >0){
 window.onload = function () {
 	var productsElement = document.querySelectorAll(".product");
 
@@ -53,6 +54,7 @@ if(productsElement.length > 0){
 			
 		})
 	}
+}
 }
 	
 function productClickPush(entityProduct){
