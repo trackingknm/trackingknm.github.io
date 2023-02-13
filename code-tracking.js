@@ -235,6 +235,46 @@ if(productsElement.length > 0){
 }
 //* product closed
 	
+//product detail
+var productName =  document.querySelector(".product-info-main>.page-title-wrapper>.page-title>span");
+var productId = document.querySelector(".price-box.price-final_price")
+
+var priceElement = document.querySelector("meta[property='product:price:amount']")
+var idElement = document.querySelector(".price-box.price-final_price")
+var categoryEl = document.querySelector(".ProductDetails__specs")
+
+
+if(productName != null && idElement != null && categoryEl != null && priceElement != null){
+	priceElement = priceElement.getAttribute("content")
+	priceElement = priceElement.replace(/\s/g,'');
+
+	priceElement = priceElement.replace('Rp','');
+	priceElement = priceElement.split('.').join("");
+
+	gtmDataObject.push({
+		  'event':'productDetail',
+		  'eventCategory':'Ecommerce',
+		  'eventAction':'Open PDP',
+		  'eventLabel':productName.textContent,
+		  'ecommerce': {
+			'detail': {
+			  'actionField': {'list': categoryEl.textContent},    // 'detail' actions have an optional list property.
+			  'products': [{
+				'name': productName.textContent,         // Name or ID is required.
+				'id': productId.getAttribute("data-product-id"),
+				'price': priceElement,
+				'brand': 'Nespresso',
+				'category': categoryEl.textContent,
+				'variant': ''
+			   }]
+			 }
+		   }
+	});
+
+
+}
+
+//product detail
 	
 }
 //}
