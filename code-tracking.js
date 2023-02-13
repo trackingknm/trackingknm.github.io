@@ -252,7 +252,7 @@ if(productName != null && idElement != null && categoryEl != null && priceElemen
 	priceElement = priceElement.split('.').join("");
 
 	gtmDataObject.push({
-		  'event':'productDetail',
+		  'event':'detailView',
 		  'eventCategory':'Ecommerce',
 		  'eventAction':'Open PDP',
 		  'eventLabel':productName.textContent,
