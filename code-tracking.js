@@ -162,6 +162,10 @@ if(document.querySelector('#createaccount-activation-form > div#createaccount-ac
   }
 }
 
+	//checkout step 2
+if(window.location.href.indexOf("/checkout/cart") != -1){
+	pushCheckout(3, "Shipping Option", getItemCart())
+}
 //checkout step 2
 if(window.location.href.indexOf("multishipping/checkout/shipping") != -1){
 	pushCheckout(2, "Shipping Option", getItemCart())
