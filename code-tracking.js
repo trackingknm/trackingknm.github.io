@@ -255,7 +255,7 @@ if(productName != null && idElement != null && categoryEl != null && priceElemen
 	priceElement = priceElement.replace('Rp','');
 	priceElement = priceElement.split('.').join("");
 
-	gtmDataObject.push({
+	/*gtmDataObject.push({
 		  'event':'detailView',
 		  'eventCategory':'Ecommerce',
 		  'eventAction':'Open PDP',
@@ -273,7 +273,7 @@ if(productName != null && idElement != null && categoryEl != null && priceElemen
 			   }]
 			 }
 		   }
-	});
+	});*/
 
 
 }
